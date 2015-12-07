@@ -1,5 +1,5 @@
 
-<h1>Items for Sale</h1>
+<h1>Your Items for Sale</h1>
 <div class="center">
 	<div class="row">
 		<% @listings.each do |listing| %>
@@ -10,6 +10,10 @@
 						<h3><%= listing.name %></h3>
 						<p><%= number_to_currency(listing.price) %></p>
 						<p><%= "Sold by #{listing.user.name}" %></p>
+						<% if (user_signed_in?) && (current_user == listing.user) %>
+							<%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-default btn-xs"  %>
+							<%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs"  %>
+						<% end %>
 					</div>
 				</div>
 			</div>
