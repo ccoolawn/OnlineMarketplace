@@ -11,7 +11,7 @@
 		<p><%= number_to_currency(@listing.price) %></p>
 		<p><%= @listing.description %></p>
 		<br>
-		<%= link_to "Purchase", new_listing_order_path(@listing), class: "btn btn-default" %>
+		<%= link_to "Purchase", new_listing_order_path(@listing), class: "btn btn-default", data: { no_turbolink: true } %>
 	</div>
 </div>
 <% if current_user == @listing.user %>
