@@ -12,6 +12,10 @@
 		</div>
 	<% end %>
 
+	<div id="stripe_error" class="alert alert-danger" style="display:none">
+		<noscript>JavaScript is not enabled and is required for this form. Firstenable it in your web browser settings.</noscript>
+	</div>
+
 	<div class="form-group">
 		<%= f.label :name %><br>
 		<%= f.text_field :name, class: "form-control" %>
@@ -28,6 +32,27 @@
 		<%= f.label :image %><br>
 		<%= f.file_field :image, class: "form-control" %>
 	</div>
+
+	<% if current_user.recipient.blank? %>
+		<br>
+		<h1>Banking Information</h1>
+
+		<div class="form-group">
+			<p>please use US as the Country Code number</p>
+			<%= label_tag :country %><br>
+			<%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" }  %>
+		</div>
+		<div class="form-group">
+			<p>please use 111000025 as the Routing number</p>
+			<%= label_tag :routing_number %><br>
+			<%= text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" }  %>
+		</div>
+		<div class="form-group">
+			<p>please use 000123456789 as the Account number</p>
+			<%= label_tag :account_number %><br>
+			<%= text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" }  %>
+		</div>
+	<% end %>
 	<div class="form-group">
 		<%= f.submit class: "btn btn-default" %>
 	</div>

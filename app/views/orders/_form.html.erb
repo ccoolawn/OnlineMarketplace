@@ -34,10 +34,12 @@
 	<div class="form-group">
 		<div class="row">
 			<div class="col-md-8">
+				<p>please use 4242424242424242 as the card number</p>
 				<%= label_tag :card_number, "Credit Card Number" %>
 				<%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" }  %>
 			</div>
 			<div class="col-md-4">
+				<p>use any three digits for the CVC</p>
 				<%= label_tag :card_code, "CVC" %>
 				<%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" }  %>
 			</div>
