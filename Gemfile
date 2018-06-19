@@ -16,6 +16,7 @@ gem "figaro"
 gem 'devise'
 gem 'validates_zipcode'
 gem 'stripe'
+gem 'puma'
 
 group :production do
 	gem 'pg'
